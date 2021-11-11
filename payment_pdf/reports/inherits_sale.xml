@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <template id="inherit_saleorder_doc_sale" inherit_id="sale.report_saleorder_document">
+            <xpath expr="//p[@id='fiscal_position_remark']" position="before">
+                <t t-foreach="doc.account_payment_ids" t-as="line">
+                    <t t-if="line.state == 'draft'">
+                        <p>
+                            <strong style="color: #000000;">A la validation du devis, un acompte de :</strong>
+                            <span class="m-1" style=" font-weight: 600;" t-field="line.amount"/>
+                            <strong style="color: #000000;"> vous serra demandé.</strong>
+                        </p>
+                    </t>
+                    <t t-else="line.state != 'draft'">
+                        <p>
+                            <strong style="color: #000000;">A la validation du devis, un acompte de:</strong>
+                            <span class="m-1" style=" font-weight: 600;" t-field="line.amount"/>
+                            <strong style="color: #000000;">le:</strong>
+                            <span class="m-1" style=" font-weight: 600;" t-field="line.date"/>
+                        </p>
+                    </t>
+                </t>
+
+
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

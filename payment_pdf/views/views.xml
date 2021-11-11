@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="c:\bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf.list">
+      <field name="name">C:\Bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf list</field>
+      <field name="model">c:\bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf.c:\bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="c:\bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf.action_window">
+      <field name="name">C:\Bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf window</field>
+      <field name="res_model">c:\bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf.c:\bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="c:\bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf.action_server">
+      <field name="name">C:\Bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf server</field>
+      <field name="model_id" ref="model_c:\bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf_c:\bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="C:\Bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf" id="c:\bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="c:\bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf.menu_1" parent="c:\bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf.menu_root"/>
+    <menuitem name="Menu 2" id="c:\bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf.menu_2" parent="c:\bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="c:\bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf.menu_1_list" parent="c:\bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf.menu_1"
+              action="c:\bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf.action_window"/>
+    <menuitem name="Server to list" id="c:\bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf" parent="c:\bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf.menu_2"
+              action="c:\bitnami\odoo-14.0.20210530-0\apps\odoo\data\addons\14.0\payment_pdf.action_server"/>
+-->
+  </data>
+</odoo>

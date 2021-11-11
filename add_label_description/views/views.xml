@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+<!--     <record id="add_fields_template_label_description" model="ir.ui.view">
+        <field name="name">product_templat_add_label</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+        <field name="barcode" position="after">
+ 
+        <field name="label_description" />
+   
+  </field>
+        </field>
+    </record>
+ -->
+
+
+  <record id="add_fields_template_label_description" model="ir.ui.view">
+            <field name="name">product_templat_add_label</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='categ_id']" position="after">
+                    <field name="label_description"/>
+                </xpath>
+
+                
+            </field>
+        </record> 
+    
+    
+    
+    <template id="zpl_barcode_product_report_inherit" inherit_id="stock.label_barcode_product_template_view">
+    <xpath expr="//t[@t-name='stock.label_barcode_product_template_view']" position="replace">
+          <t t-foreach="docs" t-as="product">
+                <t t-translation="off">
+^XA
+^FO100,10
+^A0N,30,20^FH_^FDPrix: <t t-esc="product.list_price"/>  _15^FS
+
+^FO100,50
+^A0N,30,20^FD<t t-esc="product.label_description"/>^FS
+
+
+^FO60,80^BY2
+^BCN,60,Y,N,N,A
+^FD<t t-esc="product.barcode"/>^FS
+
+^XZ
+
+
+                </t>
+            </t>
+      
+    </xpath>
+    </template> 
+    
+    
+    
+    
+    
+    
+    
+</data>
+</odoo>

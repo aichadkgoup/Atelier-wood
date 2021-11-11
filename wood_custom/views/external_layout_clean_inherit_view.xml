@@ -1,0 +1,46 @@
+<odoo>
+
+    <template id="template_clean_footer_inherit" inherit_id="web.external_layout_clean">
+        <xpath expr="//div[contains(@t-attf-class, 'footer')]" position="replace">
+ <div t-attf-class="footer o_clean_footer o_company_#{company.id}_layout">
+
+<div class="row mt8">
+    <div class="col-11">
+     <div class="text-center" >
+                <ul class="list-inline mb4">
+                    <!-- using the list-inline-item class from bootstrap causes weird behaviours in pdf report
+                         adding d-inline class fixes the problem-->
+                    <li t-if="company.name" class="list-inline-item d-inline"><b><span  t-field="company.name"/></b></li>
+                    <li t-if="company.street" class="list-inline-item d-inline">- <span t-field="company.street"/></li>
+                    <li t-if="company.street2" class="list-inline-item d-inline">- <span t-field="company.street2"/></li>
+                    <li t-if="company.city" class="list-inline-item d-inline">- <span t-field="company.city"/></li>
+                    <li t-if="company.country_id" class="list-inline-item d-inline">- <span t-field="company.country_id.name"/></li>
+                </ul>
+
+                <div name="financial_infos">
+                    <span t-field="company.report_footer"/>
+                </div>
+
+
+               <!-- <div t-if="report_type == 'pdf'" class="text-muted">
+                    Page: <span class="page"/> / <span class="topage"/>
+                </div>
+                -->
+            </div>
+    </div>
+    <div class="col-1">
+        <ul t-if="report_type == 'pdf'" class="list-inline pagenumber float-right text-center">
+                        <li class="list-inline-item"><strong><span class="page"/></strong></li>
+                    </ul>
+
+    </div>
+
+</div>
+
+        </div>
+
+
+        </xpath>
+
+    </template>
+</odoo>
