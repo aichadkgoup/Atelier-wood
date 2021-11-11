@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<odoo noupdate="1">
+	<record id="ir_sequence_eanatelierwood0" model="ir.sequence">
+		<field name="name">EAN13_atelierwood</field>
+		<field name="implementation">standard</field>
+		<field name="active" eval="1"/>
+		<field name="number_next" eval="1"/>
+		<field name="number_increment" eval="1"/>
+		<field name="padding" eval="5"/>
+		<field name="company_id" ref="base.main_company"/>
+		<field name="use_date_range" eval="0"/>
+	</record>
+	<record id="barcode_nomenclature_atelierwood0" model="barcode.nomenclature">
+		<field name="name">AtelierWood</field>
+		<field name="upc_ean_conv">always</field>
+	</record>
+	<record id="barcode_rule_gtinatelierwood1" model="barcode.rule">
+		<field name="name">GTIN_atelierwood</field>
+		<field name="barcode_nomenclature_id" ref="barcode_nomenclature_atelierwood0"/>
+		<field name="encoding">ean13</field>
+		<field name="pattern">37015323....</field>
+		<field name="alias">0</field>
+		<field name="type">product</field>
+		<field name="generate_type">sequence</field>
+		<field name="padding" eval="4"/>
+		<field name="sequence_id" ref="ir_sequence_eanatelierwood0"/>
+		<field name="generate_automate" eval="1"/>
+		<field name="generate_model">product.product</field>
+	</record>
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+        <!-- Actions -->
+        <record id="print_document_on_transfer" model="printnode.scenario.action">
+            <field name="name">Print document on Transfer (after validation)</field>
+            <field name="code">print_document_on_transfer</field>
+            <field name="model_id" eval="ref('stock.model_stock_picking')"/>
+        </record>
+
+        <record id="print_document_on_backorder" model="printnode.scenario.action">
+            <field name="name">Print document on Backorder (created after Transfer validation)</field>
+            <field name="code">print_document_on_backorder</field>
+            <field name="model_id" eval="ref('stock.model_stock_picking')"/>
+        </record>
+
+        <record id="print_document_on_sales_order" model="printnode.scenario.action">
+            <field name="name">Print document on Sales Order (after confirmation)</field>
+            <field name="code">print_document_on_sales_order</field>
+            <field name="model_id" eval="ref('sale.model_sale_order')"/>
+        </record>
+
+    </data>
+</odoo>

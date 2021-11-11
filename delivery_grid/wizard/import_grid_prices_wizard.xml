@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="import_grid_service_view" model="ir.ui.view">
+        <field name="name">Import Pricing Grid Service</field>
+        <field name="model">import.grid.prices.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Import Pricing Grid">
+                <group>
+                    <separator string="Select your file :"/>
+                    <field name="import_file" filename="file_name"/>
+                </group>
+                <separator colspan="4"/>
+                <footer>
+                    <button name="import_grid_service" string="Import Grid Pricing Service" type="object" icon="fa-file"/>
+                    <button special="cancel" string="_Cancel" icon="fa-times"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_import_grid_pricing_service" model="ir.actions.act_window">
+        <field name="name">Import Grid Pricing Service</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">import.grid.prices.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="import_grid_service_view"/>
+    </record>
+
+    <record id="import_result_view" model="ir.ui.view">
+        <field name="name">Import File</field>
+        <field name="model">import.grid.prices.wizard</field>
+        <field name="type">form</field>
+        <field name="priority">2</field>
+        <field name="arch" type="xml">
+            <form string="Import">
+                <gropup>
+                    <separator colspan="4" string="Results :"/>
+                    <field name="note" colspan="4" nolabel="1" width="850" height="400" readonly="1"/>
+                </gropup>
+                <footer>
+                    <button special="cancel" string="Close" icon="fa-times"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <menuitem name="Import Delivery Grid" parent="delivery.menu_delivery" action="action_import_grid_pricing_service"
+              id="import_delivery_pricing_service" sequence="20"/>
+
+
+</odoo>

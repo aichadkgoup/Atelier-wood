@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sale" model="ir.ui.view">
+            <field name="name">sale</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='date_order']" position="after">
+                    <field name="date_production"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="modifier_calendare">
+            <field name="name">Planning de production</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">calendar</field>
+        </record>
+
+        <record id="track_calendar" model="ir.ui.view">
+            <field name="name">sale_calendar</field>
+            <field name="model">sale.order</field>
+            <field eval="2" name="priority"/>
+            <field name="arch" type="xml">
+                <calendar string="Sales Orders" date_start="date_production" color="state" hide_time="true"
+                          event_limit="5">
+                    <field name="currency_id" invisible="1"/>
+                    <field name="partner_id" avatar_field="image_128"/>
+                    <field name="amount_total" widget="monetary"/>
+                    <field name="payment_term_id"/>
+                    <field name="state" filters="1" invisible="1"/>
+                </calendar>
+            </field>
+        </record>
+
+
+        <menuitem id="test_order"
+                  name="production"
+                  action="modifier_calendare"
+                  parent="sale.sale_order_menu"
+                  sequence="5" groups="sales_team.group_sale_salesman"/>
+
+
+    </data>
+</odoo>
