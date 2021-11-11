@@ -51,6 +51,7 @@ class WebsiteSale(http.Controller):
         values = kw
         sess = False
         error = False
+        mode = False
 
         tset1 = request.env['res.partner'].search([('name', '=', request.env.user.partner_id.name)])
         _logger.info("uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuukw %s", kw)
@@ -64,6 +65,7 @@ class WebsiteSale(http.Controller):
               parent = request.env['res.partner'].search([('id', '=', kw['parter_test'])])
               _logger.info("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy2222222222299999999lll %s",request.env['res.partner'].search([('id', '=', kw['parter_test'])]))
               values = {'name':parent.name,'tele':parent.phone,'adresse':parent.street,'complement_adress':parent.street2,'code_post':parent.zip,}
+              mode = 'edit'
 
             
 
@@ -105,11 +107,12 @@ class WebsiteSale(http.Controller):
             'checkout': values,
             'sess': sess,
             'error': error,
+            'mode' : mode,
 
         }
         
 
-        #_logger.info("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy22222222222 %s",parent.phone)
+        #_logger.info("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy22222222222 %s",render_values['mode'])
         #_logger.info("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy22222222222999 %s",values)
         render_values['countries'] = request.env["res.country"].search([])
         return request.render("website.ajouter-adress", render_values)
